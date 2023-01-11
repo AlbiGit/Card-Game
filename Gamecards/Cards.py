@@ -1,3 +1,4 @@
+import from Gamecards import Deck
 class Cards:
     def __init__(self,cardnum,cardsymbol):
         self.cardnumber = cardnum
