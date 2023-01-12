@@ -2,6 +2,14 @@ import random
 class Card:
     def __init__(self, card_number, card_symbol):
         """create a new card with value and suit"""
+        if type(card_number) != int:
+            raise TypeError
+        if type(card_symbol) != int:
+            raise TypeError
+        if not 1 <= card_number <= 13:
+            raise ValueError('card value must be between 1 to 13')
+        if not 1 <= card_symbol <= 4:
+            raise ValueError('card symbol must be between 1 to 4')
         self.card_value = card_number
         self.card_suit = card_symbol
 
