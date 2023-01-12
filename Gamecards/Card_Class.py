@@ -13,14 +13,14 @@ class Card:
             if other.card_value != 1:
                 return True
             elif self.card_value and other.card_value == 1:
-                if self.card_suit > other.card.suit:
+                if self.card_suit > other.card_suit:
                     return True
                 else:
                     return False
-        elif self.card_value > other.card_value:
+        if self.card_value > other.card_value:
             return True
-        elif self.card_value == other.card_value:
-            if self.card_suit > other.card.suit:
+        if self.card_value == other.card_value:
+            if self.card_suit > other.card_suit:
                 return True
             else:
                 return False
@@ -53,3 +53,23 @@ class Card:
         if val == 13:
             val = 'King'
         return f"The card is {val} of {suit}"
+    def __repr__(self):
+        suit = self.card_suit
+        val = self.card_value
+        if suit == 1:
+            suit = 'Diamonds'
+        if suit == 2:
+            suit = 'Spades'
+        if suit == 3:
+            suit = 'Hearts'
+        if suit == 4:
+            suit = 'Clubs'
+        if val == 1:
+            val = 'Ace'
+        if val == 11:
+            val = 'Jack'
+        if val == 12:
+            val = 'Queen'
+        if val == 13:
+            val = 'King'
+        return f"{val} of {suit}"

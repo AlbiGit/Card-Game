@@ -14,10 +14,10 @@ print(f'players are {player1} and {player2} with 26 cards each')
 """start of rounds now static 3 for testing later will change to 10 as needed in the requirement"""
 """gets a card from each players deck and compares them then prints the winner and addes both cards to his deck"""
 for i in range(3):
-    war.player_a.add_card(war.game_deck.deal_one())
-    war.player_b.add_card(war.game_deck.deal_one())
     card1 = war.player_a.get_card()
     card2 = war.player_b.get_card()
+    print(card1)
+    print(card2)
     if card1 > card2:
         war.player_a.add_card(card1)
         war.player_a.add_card(card2)
@@ -25,4 +25,4 @@ for i in range(3):
     else:
         war.player_b.add_card(card1)
         war.player_b.add_card(card2)
-        print(f'winnter is {war.player_b.player_name} and gets {card1} and {card2}')
+        print(f'winner is {war.player_b.player_name} and gets {card1} and {card2}')
