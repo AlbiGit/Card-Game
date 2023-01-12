@@ -1,14 +1,14 @@
 from CardGame_Class import CardGame
 
-# player1 = input("enter first player's name: ")
-# player2 = input("enter second player's name: ")
-# cards = int(input("enter amount of cards for each player to have: "))
+player1 = input("enter first player's name: ")
+player2 = input("enter second player's name: ")
+cards = int(input("enter amount of cards for each player to have: "))
 player1score = 0
 player2score = 0
 # temp player names. will be changed later to both being inputs
-player1 = f'jimmy'
-player2 = f'dudi'
-cards = 12
+# player1 = f'jimmy'
+# player2 = f'dudi'
+# cards = 12
 # set up the game - create deck and shuffle it, then deal cards to the players
 war = CardGame(player1, player2, cards)
 print(f'The players are {war.player_a.player_name} and {war.player_b.player_name}'
