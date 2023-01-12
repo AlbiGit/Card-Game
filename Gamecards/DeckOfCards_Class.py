@@ -7,6 +7,8 @@ class DeckOfCards:
         for suit in [1, 2, 3, 4]:
             for value in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]:
                 self.deck.append(Card(value, suit))
+        if len(self.deck) > 52:
+            raise ValueError
 
     def cards_shuffle(self):
         """shuffle the deck"""
