@@ -15,3 +15,12 @@ class CardGame:
         self.game_deck.cards_shuffle()
         self.player_a.set_hand(self.game_deck)
         self.player_b.set_hand(self.game_deck)
+
+    def get_winner(self):
+        if len(self.player_a.player_hand) == len(self.player_b.player_hand):
+            return None
+        else:
+            if len(self.player_a.player_hand) > len(self.player_b.player_hand):
+                return self.player_a
+            else:
+                return self.player_b
