@@ -1,6 +1,4 @@
 import random
-
-
 class Card:
     def __init__(self, card_number, card_symbol):
         """create a new card with value and suit"""
