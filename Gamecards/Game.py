@@ -1,10 +1,15 @@
 from Gamecards import CardGame_Class
 from Gamecards import Player_Class
 from Gamecards import Card_Class
-
+from Gamecards import DeckOfCards_Class
+deck = DeckOfCards_Class.DeckOfCards.cards_shuffle
 player1 = f'jimmy'
 player2 = f'dudi'
-war = CardGame_Class.CardGame(player1,player2,26)
+cards = 26
+war = CardGame_Class.CardGame(player1,player2,cards)
+for i in range(cards):
+   war.player_a.add_card(DeckOfCards_Class.DeckOfCards.deal_one)
+   war.player_b.add_card(DeckOfCards_Class.DeckOfCards.deal_one)
 print(f'players are {player1} and {player2} with 26 cards each')
 for i in range(3):
     card1 = war.player_a.get_card()
