@@ -1,5 +1,6 @@
 from unittest import TestCase
 from Card_Class import Card
+from Gamecards import DeckOfCards_Class
 class TestCard(TestCase):
     def setUp(self):
         self.card1 = Card(13, 4)  # מקרה קצה מספר גדול סוג גדול
@@ -43,3 +44,5 @@ class TestCard(TestCase):
     def test__init__invalid_type_suit(self):
         with self.assertRaises(TypeError):
             card = Card(12, "spades")
+
+

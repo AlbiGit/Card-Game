@@ -9,16 +9,9 @@ class DeckOfCards:
                 self.deck.append(Card(value, suit))
         if len(self.deck) > 52:
             raise ValueError("Deck cant be larger than 52 cards")
-        if type(suit) != int:
-            raise TypeError("suit needs to be an int value")
-        if type(value) != int:
-            raise TypeError("Card value needs to be an int value")
-        if not 1 <= value <= 13:
-            raise ValueError('card value must be between 1 to 13')
-        if not 1 <= suit <= 4:
-            raise ValueError('card symbol must be between 1 to 4')
         if type(self.deck) != list:
             raise TypeError("deck needs to be a list type of array")
+        deck = self.deck
 
     def cards_shuffle(self):
         """shuffle the deck"""
