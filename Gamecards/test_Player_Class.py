@@ -1,10 +1,9 @@
 from unittest import TestCase
-from unittest.mock import patch
+from unittest.mock import MagicMock
 import Player_Class
-import random
+from unittest.mock import patch
 
 class TestPlayer(TestCase):
-    # @mock.patch('DeckOfCards_Class.DeckOfCards')
     def setUp(self): #setting up diffrent players to call onto later
         self.player1 = Player_Class.Player("a",10) #min values
         self.player2 = Player_Class.Player("yugi",15) #mid values
@@ -19,14 +18,20 @@ class TestPlayer(TestCase):
             player = Player_Class.Player(10,10)
         with self.assertRaises(ValueError):
             player = Player_Class.Player("",10)
-    # def test__init__player_hand_valid(self): #test valid player hands
-    #     self.assertEqual(10,len(self.player1.player_hand))
-    #     self.assertEqual(15,len(self.player2.player_hand))
-    #     self.assertEqual(26,len(self.player3.player_hand))
+    def test__init__player_hand_valid_type(self): #test valid player hands
+        self.assertEqual(list,type(self.player1.player_hand))
+    def test__init__player_hand_invalid_type(self): #test for an invalid type'
+        with self.assertRaises(TypeError):
+            player = Player_Class.Player('frank',"10")
 
+    def test__init__player_card_amount_Valid(self):
+        self.assertEqual(10,self.player1.cards_amount)
+        self.assertEqual(15,self.player2.cards_amount)
+        self.assertEqual(26,self.player3.cards_amount)
 
-    # def test_get_card(self):
-    #     self.fail()
-    #
-    # def test_add_card(self):
-    #     self.fail()
+    def test__init__player_card_amount_Invalid(self):
+        with self.assertRaises(TypeError):
+            cards = Player_Class.Player("jeff","10")
+
+    def test_set_hand_valid(self):
+        pass
