@@ -1,14 +1,14 @@
 from CardGame_Class import CardGame
 
-player1 = input("enter first player's name: ")
-player2 = input("enter second player's name: ")
-cards = int(input("enter amount of cards for each player to have: "))
+# player1 = input("enter first player's name: ")
+# player2 = input("enter second player's name: ")
+# cards = int(input("enter amount of cards for each player to have: "))
 player1score = 0
 player2score = 0
 # temp player names. will be changed later to both being inputs
-# player1 = f'jimmy'
-# player2 = f'dudi'
-# cards = 12
+player1 = f'jimmy'
+player2 = f'dudi'
+cards = 12
 # set up the game - create deck and shuffle it, then deal cards to the players
 war = CardGame(player1, player2, cards)
 print(f'The players are {war.player_a.player_name} and {war.player_b.player_name}'
@@ -45,16 +45,20 @@ for i in range(10):
 
     # a break between each round, just for the drama
     print(f'\nThe score is {player1score} points to {war.player_a.player_name}'
-          f' and {player2score} points to {war.player_a.player_name}\n')
+          f' and {player2score} points to {war.player_b.player_name}\n')
     dramatic_break = input("press enter to continue\n")
-
 #checking score and announcing winner of the match
-if player1score > player2score:
-    print(player1, "wins!")
-elif player1score < player2score:
-    print(player2, "wins!")
+winner = war.get_winner()
+print("And the winner is...")
+if winner == war.player_a or winner == war.player_b:
+    print(war.get_winner().player_name)
 else:
-    print('Game ended with a draw!')
+    print("No one the games is a draw.")
+#     print(player1, "wins!")
+# elif player1score < player2score:
+#     print(player2, "wins!")
+# else:
+#     print('Game ended with a draw!')
 # endgame - declaring the winner
 # if (len(war.player_a.player_hand)) > len(war.player_b.player_hand):
 #     print(f"And the winner is..... {war.player_a.player_name}!\n{war.player_a.player_hand}")
