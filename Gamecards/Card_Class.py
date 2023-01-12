@@ -52,7 +52,7 @@ class Card:
             val = 'Queen'
         if val == 13:
             val = 'King'
-        return f"The card is {val} of {suit}"
+        return f"{val} of {suit}"
     def __repr__(self):
         suit = self.card_suit
         val = self.card_value
