@@ -13,4 +13,5 @@ class DeckOfCards:
         random.shuffle(self.deck)
 
     def deal_one(self):
-        self.deck.pop(random.randint(0, len(self.deck) - 1))
+        card = self.deck.pop(random.randint(0, len(self.deck) - 1))
+        return card
