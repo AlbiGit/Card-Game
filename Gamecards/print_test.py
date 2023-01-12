@@ -19,18 +19,9 @@ class Card:
             return False
 
 
-    def __str__(self):
-        if self.card_suit == 1:
-            self.card_suit = 'Diamond'
-        if self.card_suit == 2:
-            self.card_suit = 'Spades'
-        if self.card_suit == 3:
-            self.card_suit = 'Heart'
-        if self.card_suit == 4:
-            self.card_suit = 'Club'
-        return f"the card is {self.card_value} of {self.card_suit}"
 
-    def __repr__(self):
+
+    # def __repr__(self):
         return
 
 card1 = Card(5, 4)

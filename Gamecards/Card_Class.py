@@ -1,3 +1,6 @@
+import random
+
+
 class Card:
     def __init__(self, card_number, card_symbol):
         """create a new card with value and suit"""
@@ -5,7 +8,7 @@ class Card:
         self.card_suit = card_symbol
 
     def __gt__(self, other):
-        """compair between two cards' value"""
+        """compare between two cards value and suit"""
         if self.card_value == 1:
             if other.card_value != 1:
                 return True
@@ -14,8 +17,6 @@ class Card:
                     return True
                 else:
                     return False
-            else:
-                return False
         elif self.card_value > other.card_value:
             return True
         elif self.card_value == other.card_value:
@@ -32,46 +33,23 @@ class Card:
             return True
         else:
             return False
-
-    # def __str__(self):
-    #     # suit = int(self.card_suit)
-    #     # if suit == 1:
-    #     #     return suit == f'Diamond'
-    #     # elif suit == 2:
-    #     #     return suit == f'Spade'
-    #     # elif suit == 3:
-    #     #     return suit == f'Heart'
-    #     # else:
-    #     #     return suit == f'Club'
-    #     #
-    #     # if int(self.card_value) in range (2,10):
-    #     #     return f'The card is {self.cardnumber} of {suit}'
-    #     # elif self.card_value == 1:
-    #     #     return f'The card is Ace of {suit}'
-    #     # elif self.card_value == 11:
-    #     #     return f'The card is Jack of {suit}'
-    #     # elif self.card_value == 12:
-    #     #     return f'The card is Queen of {suit}'
-    #     # else:
-    #     #     return f'The card is King of {suit}'
-    def __repr__(self):
-        suit = int(self.card_suit)
+    def __str__(self):
+        suit = self.card_suit
+        val = self.card_value
         if suit == 1:
-            return suit == f'Diamond'
-        elif suit == 2:
-            return suit == f'Spade'
-        elif suit == 3:
-            return suit == f'Heart'
-        else:
-            return suit == f'Club'
-
-        if int(self.card_value) in range (2,10):
-            return f'The card is {self.cardnumber} of {suit}'
-        elif self.card_value == 1:
-            return f'The card is Ace of {suit}'
-        elif self.card_value == 11:
-            return f'The card is Jack of {suit}'
-        elif self.card_value == 12:
-            return f'The card is Queen of {suit}'
-        else:
-            return f'The card is King of {suit}'
+            suit = 'Diamonds'
+        if suit == 2:
+            suit = 'Spades'
+        if suit == 3:
+            suit = 'Hearts'
+        if suit == 4:
+            suit = 'Clubs'
+        if val == 1:
+            val = 'Ace'
+        if val == 11:
+            val = 'Jack'
+        if val == 12:
+            val = 'Queen'
+        if val == 13:
+            val = 'King'
+        return f"The card is {val} of {suit}"
