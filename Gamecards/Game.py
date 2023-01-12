@@ -1,16 +1,17 @@
 from CardGame_Class import CardGame
 
-player1 = input("enter first player's name: ")
-player2 = input("enter second player's name: ")
-cards = int(input("enter amount of cards for each player to have: "))
+# player1 = input("enter first player's name: ")
+# player2 = input("enter second player's name: ")
+# cards = int(input("enter amount of cards for each player to have: "))
+player1score = 0
+player2score = 0
 # temp player names. will be changed later to both being inputs
-# player1 = f'jimmy'
-# player2 = f'dudi'
-# cards = 26
-
+player1 = f'jimmy'
+player2 = f'dudi'
+cards = 12
 # set up the game - create deck and shuffle it, then deal cards to the players
 war = CardGame(player1, player2, cards)
-print(f'The players are {war.player_a.player_name} and {war.player_b.player_name} with {cards} cards each.\n'
+print(f'The players are {war.player_a.player_name} and {war.player_b.player_name} with {len(war.player_a.player_hand)} cards each.\n'
       f'the first player is {war.player_a.player_name},his/hers hand is {war.player_a.player_hand}\n'
       f'the second player is {war.player_b.player_name},his/hers hand is {war.player_b.player_hand}\n'
       f'Let the game begin!')
@@ -27,19 +28,27 @@ for i in range(10):
         war.player_a.add_card(card1)
         war.player_a.add_card(card2)
         print(f"This round's winner is {war.player_a.player_name}!")
+        player1score += 1
     else:
         war.player_b.add_card(card1)
         war.player_b.add_card(card2)
         print(f"This round's winner is {war.player_b.player_name}!")
+        player2score += 1
 
     # a break between each round, just for the drama
-    dramatic_break = input("press enter to continue")
-
-# endgame - declaring the winner
-if (len(war.player_a.player_hand)) > len(war.player_b.player_hand):
-    print(f"And the winner is..... {war.player_a.player_name}!\n{war.player_a.player_hand}")
-elif (len(war.player_a.player_hand)) == len(war.player_b.player_hand):
-    print(f"And the winner is...... Nobody!\n"
-          f"{war.player_a.player_name} and {war.player_b.player_name} have the same amount of cards.")
+    print(f'\nThe score is {player1score} points to {player1} and {player2score} points to {player2}\n')
+    dramatic_break = input("press enter to continue\n")
+if player1score > player2score:
+    print(player1,"wins!")
+elif player1score < player2score:
+    print(player2,"wins!")
 else:
-    print(f"And the winner is..... {war.player_a.player_name}!\nThe winning hand - {war.player_a.player_hand}")
+    print('Game ended with a draw!')
+# endgame - declaring the winner
+# if (len(war.player_a.player_hand)) > len(war.player_b.player_hand):
+#     print(f"And the winner is..... {war.player_a.player_name}!\n{war.player_a.player_hand}")
+# elif (len(war.player_a.player_hand)) == len(war.player_b.player_hand):
+#     print(f"And the winner is...... Nobody!\n"
+#           f"{war.player_a.player_name} and {war.player_b.player_name} have the same amount of cards.")
+# else:
+#     print(f"And the winner is..... {war.player_a.player_name}!\nThe winning hand - {war.player_a.player_hand}")
