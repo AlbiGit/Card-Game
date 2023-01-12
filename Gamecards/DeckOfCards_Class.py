@@ -13,21 +13,29 @@ class DeckOfCards:
             raise TypeError("suit needs to be an int value")
         if type(value) != int:
             raise TypeError("Card value needs to be an int value")
-        if value != range(1,13):
+        if value != range(1, 13):
             raise ValueError("Card Value has to be between 1 - 13")
-        if suit != range(1,4):
+        if suit != range(1, 4):
             raise ValueError("Card suit has to be betweeb 1 - 4")
-        if self.deck is not []:
-            raise TypeError("deck needs to be a dictionary type of array")
+        if type(self.deck) != list:
+            raise TypeError("deck needs to be a list type of array")
 
     def cards_shuffle(self):
         """shuffle the deck"""
+        if self.deck == []:
+            raise ValueError("can't shuffle an empty deck")
         random.shuffle(self.deck)
         if self.deck == random.shuffle:
             random.shuffle(self.deck)
 
     def deal_one(self):
         """takes one card out of the deck and return it"""
-        card = self.deck.pop(random.randint(0, len(self.deck) - 1))
-        if card !=
+        if len(self.deck) == 0:
+            print(f"deck has no more cards left")
+            return None
+        elif len(self.deck) == 1:
+            card = self.deck.pop(0)
+            return card
+        else:
+            card = self.deck.pop(random.randint(0, len(self.deck) - 1))
         return card
