@@ -1,6 +1,6 @@
-from unittest import TestCase
+from unittest import TestCase, mock
 from Card_Class import Card
-from Gamecards import DeckOfCards_Class
+from unittest.mock import Mock, patch
 class TestCard(TestCase):
     def setUp(self):
         self.card1 = Card(13, 4)  # מקרה קצה מספר גדול סוג גדול
@@ -13,6 +13,9 @@ class TestCard(TestCase):
         self.assertEqual(4, self.card1.card_suit)
         self.assertEqual(1, self.card2.card_value)
         self.assertEqual(1, self.card2.card_suit)
+        self.assertEqual(7, self.card3.card_value)
+        self.assertEqual(2, self.card3.card_suit)
+
     def test__init__invalid_big_value(self):
         with self.assertRaises(ValueError):
             card = Card(14, 1)
@@ -44,5 +47,6 @@ class TestCard(TestCase):
     def test__init__invalid_type_suit(self):
         with self.assertRaises(TypeError):
             card = Card(12, "spades")
+
 
 

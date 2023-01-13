@@ -7,18 +7,20 @@ class DeckOfCards:
         for suit in [1, 2, 3, 4]:
             for value in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]:
                 self.deck.append(Card(value, suit))
-        if len(self.deck) > 52:
-            raise ValueError("Deck cant be larger than 52 cards")
+        if len(self.deck) != 52:
+            raise ValueError("Deck must be 52 cards")
         if type(self.deck) != list:
             raise TypeError("deck needs to be a list type of array")
-        deck = self.deck
 
     def cards_shuffle(self):
         """shuffle the deck"""
         if self.deck == []:
             raise ValueError("can't shuffle an empty deck")
+        # makes a copy of the deck
+        copy_deck = self.deck.copy()
         random.shuffle(self.deck)
-        if self.deck == random.shuffle:
+        # after the shuffle, checks that the new order is different from before the shuffle
+        while self.deck == copy_deck:
             random.shuffle(self.deck)
 
     def deal_one(self):
