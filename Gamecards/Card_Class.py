@@ -1,6 +1,6 @@
 class Card:
+    # Setup for the Card class for what inputs it accepts to create a new card with a value and suit
     def __init__(self, card_number, card_symbol):
-        """create a new card with value and suit"""
         if type(card_number) != int:
             raise TypeError
         if type(card_symbol) != int:
@@ -12,8 +12,10 @@ class Card:
         self.card_value = card_number
         self.card_suit = card_symbol
 
+    # Setup for testing what card is greater than the other in value
     def __gt__(self, other):
-        """compare between two cards value and suit"""
+        if type(other) != Card:
+            raise TypeError
         if self.card_value == 1:
             if other.card_value != 1:
                 return True
@@ -32,12 +34,14 @@ class Card:
         else:
             return False
 
+    # Setup for testing if 2 cards equal to one another by their numeral and suit value
     def __eq__(self, other):
-        """check if cards are equal based on value and suit"""
         if [self.card_value, self.card_suit] == [other.card_value, other.card_suit]:
             return True
         else:
             return False
+
+        # Setup string value that's returned for each corresponding value of card
     def __str__(self):
         suit = self.card_suit
         val = self.card_value
@@ -58,6 +62,8 @@ class Card:
         if val == 13:
             val = 'King'
         return f"{val} of {suit}"
+
+    # Setup for repr to return a list of cards
     def __repr__(self):
         suit = self.card_suit
         val = self.card_value

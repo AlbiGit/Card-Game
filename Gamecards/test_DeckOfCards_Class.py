@@ -1,10 +1,6 @@
 from unittest import TestCase
-from unittest import mock
 from DeckOfCards_Class import DeckOfCards
-from CardGame_Class import CardGame
 from Card_Class import Card
-import random
-
 
 class TestDeckOfCards(TestCase):
     def setUp(self):

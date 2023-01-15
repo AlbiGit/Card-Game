@@ -1,7 +1,6 @@
 from unittest import TestCase
 from Player_Class import Player
-from DeckOfCards_Class import DeckOfCards
-from Card_Class import Card
+from DeckOf Cards_Class import DeckOfCards
 from CardGame_Class import CardGame
 
 

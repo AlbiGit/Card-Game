@@ -1,10 +1,9 @@
-from Card_Class import Card
 from Player_Class import Player
 from DeckOfCards_Class import DeckOfCards
-
 class CardGame:
-    def __init__(self, name1: str, name2: str, cards_to_each_player: int):
-        """creates a new game with 2 players"""
+    # Setup for the card game with 2 player string
+    # and an int value for how many cards each player can hold
+    def __init__(self, name1, name2, cards_to_each_player):
         if type(cards_to_each_player) != int:
             raise TypeError("Number of cards needs to be an int value")
         if not 10 <= cards_to_each_player <= 26:
@@ -18,12 +17,16 @@ class CardGame:
         self.player_b = Player(name2, cards_to_each_player)
         self.game_deck = DeckOfCards()
         self.new_game()
+
+    # New game function where it starts of by shuffling the deck and sets both players hands
+    # each player starts of with the number of cards thats set at the start of the game
     def new_game(self):
-        """shuffle the deck and deal cards to the players"""
         self.game_deck.cards_shuffle()
         self.player_a.set_hand(self.game_deck)
         self.player_b.set_hand(self.game_deck)
 
+    # Get winner function that calculates the games winner by the number of cards in a players hand
+    # the function should be called upon at the end of the game but can be called upon at any time
     def get_winner(self):
         if len(self.player_a.player_hand) == len(self.player_b.player_hand):
             return None

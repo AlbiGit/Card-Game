@@ -2,8 +2,8 @@ from Card_Class import Card
 from DeckOfCards_Class import DeckOfCards
 import random
 class Player:
-    def __init__(self, name: str, number_of_cards_to_deal: int):
-        """sets a new player"""
+    # Setup for the player class with the player name and number of cards dealt that the user input
+    def __init__(self, name, number_of_cards_to_deal):
         if type(name) != str:
             raise TypeError
         if name == '':
@@ -16,6 +16,7 @@ class Player:
         self.player_name = name
         self.player_hand = []
         self.cards_amount = number_of_cards_to_deal
+    # Set hand function that sets the players hand by adding random cards it takes out of the shuffled deck
 
     def set_hand(self, deck: DeckOfCards):
         """sets the player's hand according to the amount of cards entered at the beginning of the game"""
@@ -25,8 +26,9 @@ class Player:
             card = deck.deal_one()
             self.player_hand.append(card)
 
+    # Get card function that pulls a card for the players hand
+    # if the player runs out of cards it prints out that the player has run out of cards
     def get_card(self):
-        """takes one card out of the player's hand and returns it"""
         if len(self.player_hand) == 0:
             print(f"{self.player_name} has no more cards left")
             return None
@@ -37,8 +39,8 @@ class Player:
             card = self.player_hand.pop(random.randint(0, len(self.player_hand) - 1))
         return card
 
+    # Add card function that adds a card to a players hand
     def add_card(self, card: Card):
-        """adds a card to the player's hand"""
         if type(card) != Card:
             raise TypeError('add_card can only append objects of Card type')
         if type(card.card_value) != int:
@@ -49,5 +51,4 @@ class Player:
             raise ValueError('card value must be between 1 to 13')
         if not 1 <= card.card_suit <= 4:
             raise ValueError('card symbol must be between 1 to 4')
-
         self.player_hand.append(card)

@@ -1,11 +1,11 @@
-from unittest import TestCase, mock
+from unittest import TestCase
 from Card_Class import Card
-from unittest.mock import Mock, patch
 class TestCard(TestCase):
     def setUp(self):
         self.card1 = Card(13, 4)  # מקרה קצה מספר גדול סוג גדול
         self.card2 = Card(1, 1)  # מקרה קצה מספר קטן סוג קטן
         self.card3 = Card(7, 2)  # מקרה אמצע
+        self.card4 = Card(1, 1) # Card that is the same as the other for testing EQ
 
     def test__init__valid(self):
         """test a valid init"""
@@ -47,13 +47,16 @@ class TestCard(TestCase):
     def test__init__invalid_type_suit(self):
         with self.assertRaises(TypeError):
             card = Card(12, "spades")
-    #
-    # @patch('DeckOfCards.deal_one()')
-    # def test__gt__valid(self, Card1(13, 4)):
-    #     self.assertTrue(self.card2 > card1)
 
+    def test__gt__Valid(self):
+        self.assertTrue(self.card2 > self.card1)
+    def test__gt__inValid(self):
+        with self.assertRaises(TypeError):
+            self.card1 > 12
 
+    def test__eq__Valid(self):
+        self.assertTrue(self.card2 == self.card4)
 
-
-
-
+    def test__eq__invalid(self):
+        with self.assertRaises(TypeError):
+            self.card1 == 10
