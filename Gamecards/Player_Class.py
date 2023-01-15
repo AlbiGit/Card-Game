@@ -32,6 +32,7 @@ class Player:
             return None
         elif len(self.player_hand) == 1:
             card = self.player_hand.pop(0)
+            print("that was the last card, no more cards left")
         else:
             card = self.player_hand.pop(random.randint(0, len(self.player_hand) - 1))
         return card
@@ -40,4 +41,13 @@ class Player:
         """adds a card to the player's hand"""
         if type(card) != Card:
             raise TypeError('add_card can only append objects of Card type')
+        if type(card.card_value) != int:
+            raise TypeError
+        if type(card.card_suit) != int:
+            raise TypeError
+        if not 1 <= card.card_value <= 13:
+            raise ValueError('card value must be between 1 to 13')
+        if not 1 <= card.card_suit <= 4:
+            raise ValueError('card symbol must be between 1 to 4')
+
         self.player_hand.append(card)

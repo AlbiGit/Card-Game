@@ -47,6 +47,13 @@ class TestCard(TestCase):
     def test__init__invalid_type_suit(self):
         with self.assertRaises(TypeError):
             card = Card(12, "spades")
+    #
+    # @patch('DeckOfCards.deal_one()')
+    # def test__gt__valid(self, Card1(13, 4)):
+    #     self.assertTrue(self.card2 > card1)
+
+
+
 
 
 
