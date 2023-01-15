@@ -1,8 +1,8 @@
 from unittest import TestCase
 from Player_Class import Player
-from DeckOf Cards_Class import DeckOfCards
+from DeckOfCards_Class import DeckOfCards
 from CardGame_Class import CardGame
-
+from Card_Class import Card
 
 class TestCardGame(TestCase):
     def setUp(self):

@@ -36,6 +36,8 @@ class Card:
 
     # Setup for testing if 2 cards equal to one another by their numeral and suit value
     def __eq__(self, other):
+        if type(other) != Card:
+            raise TypeError
         if [self.card_value, self.card_suit] == [other.card_value, other.card_suit]:
             return True
         else:
