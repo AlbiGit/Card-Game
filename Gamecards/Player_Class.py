@@ -5,7 +5,7 @@ class Player:
     # Setup for the player class with the player name and number of cards dealt that the user input
     def __init__(self, name, number_of_cards_to_deal):
         if type(name) != str:
-            raise TypeError
+            raise TypeError('the name must be str type')
         if name == '':
             raise ValueError("the name can't be empty")
         if type(number_of_cards_to_deal) != int:
@@ -16,17 +16,17 @@ class Player:
         self.player_name = name
         self.player_hand = []
         self.cards_amount = number_of_cards_to_deal
-    # Set hand function that sets the players hand by adding random cards it takes out of the shuffled deck
 
+    # Set hand function that sets the players hand by adding random cards it takes out of the shuffled deck
     def set_hand(self, deck: DeckOfCards):
         """sets the player's hand according to the amount of cards entered at the beginning of the game"""
         if type(deck) != DeckOfCards:
-            raise TypeError("set_hand takes only DeckOfCards objects")
+            raise TypeError("set_hand takes only DeckOfCards type objects")
         for i in range(self.cards_amount):
             card = deck.deal_one()
             self.player_hand.append(card)
 
-    # Get card function that pulls a card for the players hand
+    # Get card function that pulls a card out of player's hand
     # if the player runs out of cards it prints out that the player has run out of cards
     def get_card(self):
         if len(self.player_hand) == 0:

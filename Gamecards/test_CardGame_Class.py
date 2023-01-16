@@ -30,6 +30,10 @@ class TestCardGame(TestCase):
         with self.assertRaises(TypeError):
             self.test_game = CardGame('aviv', DeckOfCards, 26)
 
+    def test_init_invalid_name_empty(self):
+        with self.assertRaises(ValueError):
+            self.test_game = CardGame('', 'albert', 26)
+
     # Testing invalid card amount type input
     def test_init_invalid_cards_amount_type(self):
         with self.assertRaises(TypeError):
